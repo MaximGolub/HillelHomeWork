@@ -9,13 +9,9 @@ const statusEl = document.querySelector('[name="status"]');
 const tableEl = document.querySelector(".todo-table");
 const tableBodyEl = tableEl.querySelector("tbody");
 
-const draftEl = document.getElementById("draft");
-const inprogressEl = document.getElementById("in_progress");
 const completedEl = document.getElementById("completed");
 
 const methodsMap = {
-    'draft': 0,
-    'in_progress': 0,
     'completed': 0,
 };
 
@@ -134,15 +130,9 @@ function createRemoveButton(objStatus) {
 function countTask(objStatus, index) {
     if (objStatus === 'completed') {
         index;
-    } else if (objStatus === 'in_progress') {
-        index;
-    } else if (objStatus === 'draft') {
-        index;
     }
 }
 
 function showRowTask() {
-    draftEl.innerHTML = "Draft tasks: " + methodsMap.draft;
-    inprogressEl.innerHTML = "In progress tasks: " + methodsMap.in_progress;
-    completedEl.innerHTML = "Completed tasks: " + methodsMap.completed;
+    completedEl.innerHTML = methodsMap.completed;
 }
