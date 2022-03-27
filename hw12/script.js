@@ -16,3 +16,31 @@ function getSum(arr) {
 
 console.log(getSum([1, 2, 3])); // 6
 console.log(getSum([1, [2, [3]]])); // 6
+
+////// 3
+
+function createStack() {
+    const arr = [];
+
+    return {
+        add: function(element) {
+            arr.push(element);
+            return arr;
+        },
+
+        remove: function(element) {
+            arr.pop(element);
+            return arr;
+        },
+
+        get: function() {
+            return arr;
+        }
+    }
+}
+
+const stack = createStack();
+console.log(stack.add(5));
+console.log(stack.add("test"));
+console.log(stack.remove());
+console.log(stack.get()); // [5]
