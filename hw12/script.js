@@ -17,6 +17,47 @@ function getSum(arr) {
 console.log(getSum([1, 2, 3])); // 6
 console.log(getSum([1, [2, [3]]])); // 6
 
+////// 2
+
+function contains(obj, val) {
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            const element = obj[key];
+            let hasObjects = false;
+
+            for (prop in obj) {
+                if (typeof(obj[prop]) === 'object') {
+                    hasObjects = true;
+                }
+            }
+
+            if (element === val) {
+                return true;
+            } else if (element !== val && !hasObjects) {
+                return false;
+            } else if (typeof(element) === 'object') {
+                return contains(element, val);
+            }
+        }
+    }
+}
+
+const obj = {
+    a: {
+        b: {
+            c: {
+                d: 'test',
+                e: {
+                    f: 5
+                }
+            }
+        }
+    }
+}
+
+console.log(contains(obj, 5)); // true
+console.log(contains(obj, 'ololo')); // false
+
 ////// 3
 
 function createStack() {
