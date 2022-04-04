@@ -9,7 +9,7 @@ const shape = {
             this.squareFigure = Math.pow(this.width, 2);
         }
         if (this.figureName === 'Rectangle') {
-            this.squareFigure = 0.5 * (this.width * this.height);
+            this.squareFigure = this.width * this.height;
         }
         if (this.figureName === 'Circle') {
             this.squareFigure = Math.round(Math.PI * Math.pow(this.width, 2));
