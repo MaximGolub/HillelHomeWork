@@ -4,16 +4,20 @@ const shape = {
     width: 5,
     height: 5,
 
-    get square() {
-        if (this.figureName === 'Square' && this.width === this.height) {
+    get squareSquare() {
+        if (this.width === this.height) {
             this.squareFigure = Math.pow(this.width, 2);
-        }
-        if (this.figureName === 'Rectangle') {
-            this.squareFigure = this.width * this.height;
-        }
-        if (this.figureName === 'Circle') {
-            this.squareFigure = Math.round(Math.PI * Math.pow(this.width, 2));
-        }
+            return `Square ${this.figureName} - ${this.squareFigure}`;
+        } else console.log('Sides square are not equal');
+    },
+
+    get squareRectangle() {
+        this.squareFigure = this.width * this.height;
+        return `Square ${this.figureName} - ${this.squareFigure}`;
+    },
+
+    get squareCircle() {
+        this.squareFigure = Math.round(Math.PI * Math.pow(this.width, 2));
         return `Square ${this.figureName} - ${this.squareFigure}`;
     },
 
@@ -53,4 +57,4 @@ squareObj.square = [10, 10];
 rectangleObj.square = [10, 10];
 circleObj.square = [10, 10];
 
-console.log(squareObj.square, rectangleObj.square, circleObj.square);
+console.log(squareObj.squareSquare, rectangleObj.squareRectangle, circleObj.squareCircle);
