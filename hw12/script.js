@@ -42,6 +42,22 @@ function contains(obj, val) {
     }
 }
 
+// Alternative Solution
+
+// function contains(obj, val) {
+//     for (let key in obj) {
+//         if (Object.hasOwnProperty.call(obj, key)) {
+//             const element = obj[key];
+
+//             if (element === val) return true;
+//             else if (typeof(element) === "object" && element !== null) {
+//                 return contains(element, val);
+//             }
+//         }
+//     }
+//     return false;
+// }
+
 const obj = {
     a: {
         b: {
