@@ -4,24 +4,7 @@ const shape = {
     width: 5,
     height: 5,
 
-    get squareSquare() {
-        if (this.width === this.height) {
-            this.squareFigure = Math.pow(this.width, 2);
-            return `Square ${this.figureName} - ${this.squareFigure}`;
-        } else console.log('Sides square are not equal');
-    },
-
-    get squareRectangle() {
-        this.squareFigure = this.width * this.height;
-        return `Square ${this.figureName} - ${this.squareFigure}`;
-    },
-
-    get squareCircle() {
-        this.squareFigure = Math.round(Math.PI * Math.pow(this.width, 2));
-        return `Square ${this.figureName} - ${this.squareFigure}`;
-    },
-
-    set square(value) {
+    setParameters(value) {
         if (!Array.isArray(value)) {
             throw new Error("Value should be array");
         }
@@ -34,15 +17,36 @@ const shape = {
 };
 
 function Square() {
-    this.figureName = Square.name;
+    Object.defineProperty(this, "square", {
+        get: function() {
+            return this.squareFigure = Math.pow(this.width, 2);
+        },
+        set: function(value) {
+            this.setParameters(value);
+        }
+    });
 }
 
 function Rectangle() {
-    this.figureName = Rectangle.name;
+    Object.defineProperty(this, "square", {
+        get: function() {
+            return this.squareFigure = this.width * this.height;
+        },
+        set: function(value) {
+            this.setParameters(value);
+        }
+    });
 }
 
 function Circle() {
-    this.figureName = Circle.name;
+    Object.defineProperty(this, "square", {
+        get: function() {
+            return this.squareFigure = Math.round(Math.PI * Math.pow(this.width, 2));
+        },
+        set: function(value) {
+            this.setParameters(value);
+        }
+    });
 }
 
 Square.prototype = shape;
@@ -57,4 +61,6 @@ squareObj.square = [10, 10];
 rectangleObj.square = [10, 10];
 circleObj.square = [10, 10];
 
-console.log(squareObj.squareSquare, rectangleObj.squareRectangle, circleObj.squareCircle);
+console.log('Square Square - ' + squareObj.square);
+console.log('Square Rectangle - ' + rectangleObj.square);
+console.log('Square Circle - ' + circleObj.square);
