@@ -21,10 +21,10 @@ class DiceBearAvatars {
     }
 
     async downloadImage() {
-        let response = await fetch(this.previewImage.src);
-        let blob = await response.blob();
+        const response = await fetch(this.previewImage.src);
+        const blob = await response.blob();
 
-        let a = document.createElement("a");
+        const a = document.createElement("a");
         a.href = window.URL.createObjectURL(blob);
         a.download = `${this.spriteSelectEl.value}_${this.seedInputEl.value}`;
         a.click();
