@@ -1,23 +1,27 @@
 'use strict'
 
-function createAsyncList(iterations, arr = []) {
+function createAsyncList(iterations) {
+    let arr = [];
 
-    return new Promise((resolve, reject) => {
+    return function fn() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                arr.unshift({
+                    message: `Current iteration ${ iterations }`
+                });
 
-        if (iterations <= 0) return;
+                iterations--;
 
-        setTimeout(() => {
-            arr.unshift({
-                message: `Current iteration ${ iterations }`,
-            });
-
-            createAsyncList(iterations - 1, arr);
-            resolve(arr);
-
-        }, 1000);
-    })
+                if (iterations != 0) {
+                    resolve(fn());
+                } else {
+                    resolve(arr);
+                }
+            }, 1000);
+        })
+    }()
 }
 
 createAsyncList(3).then((data) => {
-    console.log(data, '---') // [{message: 'Current iteration 1'}, {message: 'Current iteration 2'}, {message: 'Current iteration 3'}]
+    console.log(data); // [{message: 'Current iteration 1'}, {message: 'Current iteration 2'}, {message: 'Current iteration 3'}]
 });
