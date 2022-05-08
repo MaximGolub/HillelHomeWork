@@ -1,0 +1,50 @@
+hr
+footer.footer.container
+    .footer__content.content
+        .content__tryforfree
+            .content__title.title Try for free!
+            .content__subtitle 
+                p Get limited 1 week free try our features!
+        .content__buttons
+            a(href="#").content__btn.btn_learnMore
+                span Learn more
+            a(href="#").btn__requestDemo
+                span Request Demo
+                img(src='./assets/images/arrow.png' alt="").arrow
+    .footer__info.info
+        .info__contacts
+            a(href="#")
+                img(src='./assets/images/logo.png' alt="")
+                span.title-info DataWarehouse
+            p.info__address 
+                |Warehouse Society, 234
+                br
+                |Bahagia Ave Street PRBW 
+            p.info__contact 
+                |info@warehouse.project
+                br
+                |1-232-3434 (Main)
+        
+        mixin info_menu(title, subtitle)
+            h3.title-info= title
+            each item in subtitle
+                a(href=item.url).link-info
+                    p= item.text
+                        
+        .info__about
+            +info_menu('About', [{"text": "Profile", "url": "#"}, {"text": "Features", "url": "#"}, {"text": "Careers", "url": "#"}, {"text": "DW News", "url": "#"}])
+        .info__help 
+            +info_menu('Help', [{"text": "Support", "url": "#"}, {"text": "Sign up", "url": "#"}, {"text": "Guide", "url": "#"}, {"text": "Reports", "url": "#"}, {"text": "Q&A", "url": "#"}])
+        .info__socialmedia
+            h3.title-info Social Media
+            -var list = ["./assets/images/facebook.svg", "./assets/images/twitter.svg", "./assets/images/instagram.svg"]
+                each item in list
+                    a(href='#')
+                        img(src=item).info__social_image
+    .footer__allrightreserved.allrightreserved
+        p.allrightreserved__company
+            |© Datawarehouse™, 2020. All rights reserved.
+            br
+            |Company Registration Number: 21479524.
+        a(href="#")
+            img(src='./assets/images/message.svg' alt="")

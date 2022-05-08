@@ -1,0 +1,17 @@
+header.header.container
+    .header__content
+        .header__logo.logo
+            a(href="#")
+                img(src='./assets/images/logo.png' alt="")
+        .header__menu.menu
+            nav.menu__body
+                ul.menu__list
+                    - var navigation = [{"title": "About", "url": "#"}, {"title": "Help", "url": "#"}, {"title": "Features", "url": "#"}, {"title": "Signup", "url": "#"}]
+                        each item in navigation
+                            li.menu__link(class=(item.url === 'index.html' ? 'active' : undefined))
+                                a(href=item.url)
+                                    span= item.title
+        .header__button.button
+            a(href="#").btn__requestDemo
+                span Request Demo
+                img(src='./assets/images/arrow.png' alt="").arrow

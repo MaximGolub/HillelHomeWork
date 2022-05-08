@@ -1,0 +1,114 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    &__subtitle {
+        font-family: $fontFamilyAvenir;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 160%;
+        color: $gray;
+    }
+    &__btn {
+        background-color: $pink;
+        margin-right: 30px;
+    }
+}
+
+.title-info {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: $blue;
+    align-items: center;
+}
+
+.link-info {
+    font-family: $fontFamilyAvenir;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 250%;
+    color: $blue;
+    text-decoration: none;
+    p {
+        margin: 0;
+    }
+}
+
+.link-info:hover {
+    text-decoration: underline $violet;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    &__contacts {
+        a {
+            text-decoration: none;
+        }
+        span {
+            font-family: $fontFamilyAvenir;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 160%;
+            color: $blue;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+    }
+    &__address {
+        font-family: 'Avenir';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 180%;
+        letter-spacing: 0.01em;
+        color: $blue;
+        margin-top: 50px;
+    }
+    &__contact {
+        font-family: 'Avenir';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 180%;
+        letter-spacing: 0.01em;
+        color: $blue;
+        margin-top: 30px;
+    }
+    &__social_image {
+        margin-left: 14px;
+    }
+    &__social_image:hover {
+        border: 1px solid $blue;
+        border-radius: 50px;
+    }
+}
+
+.footer__allrightreserved {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    &__company {
+        font-family: $fontFamilyAvenir;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 180%;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em;
+        color: $blue;
+    }
+    img:hover {
+        border: 1px solid $blue;
+        border-radius: 40px;
+    }
+}
